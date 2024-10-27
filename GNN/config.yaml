@@ -1,0 +1,90 @@
+home_folder: "/vol/GhostFreePro/" #"/home/icb/samuele.firmani/"
+storage_folder: "/vol/artivir_data/"
+is_dataset_emogi_compatible: False
+dataset_type: "transcriptome-proteome-effectome-interactome"
+mpxv_transcriptomics_file: "MPXV/Supplementary_table_2_Transcriptome_of_HFF_cells_infected_with_MPXV.xlsx"
+mpxv_proteomics_file: "MPXV/Supplementary_table_3_Total_proteome_of_HFF_cells_infected_with_MPXV.xlsx"
+mpxv_host_factors_file: "MPXV/poxvirus_host_factors.xlsx"
+model_to_use: "GCNConv" #"MPNN"#"GCN"
+is_positional_encoding: False
+is_positional_encoding_and_omics: False
+positional_encoding_file: "ranks_personalized_page_rank_0.3_v12.npy" #"ppi_to_ppr_to_pca.pt" #"pca_components_personalized_page_rank_0.3_is_prior_True.pt"#"ranks_personalized_page_rank_0.2_is_prior_True.pt"#"ranks_node2vec.pt"#"ranks_page_rank_0.0_is_prior_True.pt"
+gene_names_file: "gene_names_0.3_v12.npy" #"gene_names_ppr.npy"#"gene_names_node2vec.npy"#"gene_names_0.0.npy"
+host_factors_from_publications: "host_factors_from_publications.xlsx"
+inference_score_dict_file_name: "inference_score_dict_v2.pickle"
+inference_score_dict_full_file_name: "inference_score_dict_all_diseases_v2.pickle"
+is_pretraining_on_all_diseases: True
+is_ppr_from_target_to_source: True
+is_simple_debug: False
+is_pretraining: True
+is_cross_validation: True
+is_mlp_used: False
+random_seed: 42
+is_hpo : False
+is_inference: True
+is_pe_used: True
+is_prot_emb_used: True
+is_gosemsim_used: True
+is_omics_used: True
+
+# training_configuration:
+#   decay: [0.000277, 0.000277]
+#   drop_out_rate: [0.505, 0.505]
+#   drop_out_rate_edges: [0.176, 0.176]
+#   hidden_channels_number: [2, 2]
+#   hidden_channels_dimension: [60, 60]
+#   interaction_score_threshold: [0.50, 0.50]
+#   latent_space_dimension: [46, 46]
+#   jk_mode: ["cat"] #["cat","lstm", "no_jk"] #["cat"]
+#   learning_rate: [0.00049, 0.00049]
+#   n_epochs: [250, 250]
+#   negative_weight: 0.86
+#   positive_weight: 3.06
+#   is_apply_heat_diffusion: False
+#   are_missing_features_imputed: True
+#   n_fine_tuning_steps: [100, 100]
+#   is_tune_ppi: False
+#   n_components: 128
+#   fine_tuning_virus: "SARS-CoV-2" #"MPXV" #"SARS-CoV-2"
+
+training_configuration:
+  decay: [0.0001, 0.0005]
+  drop_out_rate: [0.3, 0.6]
+  drop_out_rate_edges: [0.1, 0.3]
+  hidden_channels_number: [1, 2]
+  hidden_channels_dimension: [30, 90]
+  interaction_score_threshold: [0.4, 0.6]
+  latent_space_dimension: [40, 60]
+  jk_mode: ["cat"] #["cat","lstm", "no_jk"] #["cat"]
+  learning_rate: [0.0001, 0.001]
+  n_epochs: [200, 300]
+  negative_weight: 1.00
+  positive_weight: 3.00
+  is_apply_heat_diffusion: False
+  are_missing_features_imputed: True
+  n_fine_tuning_steps: [60, 160]
+  is_tune_ppi: False
+  n_components: 128
+  fine_tuning_virus: "SARS-CoV-2" #"MPXV" #"SARS-CoV-2"
+
+
+  # PNA:
+#   {'decay': 0.0002776482066518111,
+#  'drop_out_rate': 0.5051945923623737,
+#  'drop_out_rate_edges': 0.17608701152443565,
+#  'hidden_channels_number': 1,
+#  'hidden_channels_dimension': 53,
+#  'interaction_score_threshold': 0.5558445537356198,
+#  'is_latent_space_summed': True,
+#  'jk_mode': 'cat',
+#  'learning_rate': 0.0004920447036598434,
+#  'n_epochs': 339,
+#  'latent_space_omic_dimension': 46,
+#  'n_fine_tuning_steps': 79}
+
+# {'drop_out_rate_edges': 0.176, 'hidden_channels_dimension': 60, 'interaction_score_threshold': 0.4810199984417154,
+# 'n_epochs': 356, 'binary_compound_score_2': 0, 'binary_compound_score_3': 1, 'binary_compound_score_5': 1,
+# 'binary_compound_score_7': 1, 'binary_compound_score_8': 0, 'binary_compound_score_11': 1}
+
+
+

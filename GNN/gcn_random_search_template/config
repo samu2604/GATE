@@ -1,0 +1,20 @@
+create_args_dict.learning_rate = {{ [0.003, 0.001, 0.002] | random }}
+create_args_dict.decay = {{ [0.02, 0.01, 0.005, 0.001, 0.0005] | random }}
+create_args_dict.imbalance_dataset_weights = {{[[1.0, 3.0], [1.0, 2.0], [1.0, 2.5], [1.0, 1.5]] | random}}
+create_args_dict.hidden_channels = {{[[300, 300, 300], [300, 400, 500], [400, 400], [500, 500], [400, 600]] | random}}
+
+create_args_dict.artivir_data_dir = "/home/icb/samuele.firmani/GhostFreePro/data_preprocessing_pipeline/artivir_data/input_data_transcriptome_proteome_effectome_interactome_2023_5_4_0_29/transcriptome-proteome-effectome-interactome_abs_feature_values_False_are_missing_values_imputed_True_STRING_zero_imputed.h5"
+#create_args_dict.artivir_data_dir = "/home/icb/samuele.firmani/GhostFreePro/data_preprocessing_pipeline/HBV/HBV_dataset/input_data_transcriptome_2023_5_1_21_25/transcriptomics_HBV.h5"
+
+create_args_dict.n_folds = 10
+create_args_dict.n_epochs = {{[250, 300, 350, 400, 450, 500] | random}}
+create_args_dict.drop_out_rate = {{[0.3, 0.4, 0.5, 0.6] | random}}
+create_args_dict.drop_out_rate_edges = {{[0.0, 0.1, 0.2, 0.25, 0.15] | random}}
+create_args_dict.model = "GCN"
+create_args_dict.is_used_abs_value_for_up_down_regulated = False
+create_args_dict.are_missing_features_imputed = True
+create_args_dict.dataset_type = "transcriptome-proteome-effectome-interactome" 
+create_args_dict.input_graph_type = "mulstiscale_interactome" #"STRING"
+create_args_dict.is_apply_heat_diffusion = True
+create_args_dict.is_latent_space_summed = True
+create_args_dict.is_hbv_dataset = False
